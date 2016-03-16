@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script>
+            $(function(){
+                $("a").click( function(){
+                    var botaoId = $(this).attr('id');
+                    $.ajax({
+                        type: 'GET',
+                        url: '/' + botaoId,
+                        success: function(){
+                            $('#tela').css("background-color", "rgb(18, 161, 231)");
+                            $('#tela').delay(200).queue(function (next) {
+                                $(this).css("background-color", "white");
+                                next();
+                            });
+                        },
+                        error: function() {
+                            $('#tela').css("background-color", "rgb(179, 79, 76)");
+                            $('#tela').delay(200).queue(function (next) {
+                                $(this).css("background-color", "white");
+                                next();
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+        <style>.center {text-align: center;}</style>
+    </head>
+
+    <body>
+        <div data-role="page" >
+            <div data-role="header">
+            <h1>  Controle TV </h1>
+        </div>
+        <div id="tela" data-role="content">
+            <div class="ui-grid-c">
+                <div class="ui-block-a"><a id="bt1" class="ui-btn">  1 </a></div>
+                <div class="ui-block-b"><a id="bt2" class="ui-btn">  2 </a></div>
+                <div class="ui-block-c"><a id="bt3" class="ui-btn">  3 </a></div>
+                <div class="ui-block-d"><a id="bt_mais" class="ui-btn" style="background: #339966; color: white;">  Vol + </a></div>
+            </div>
+            <div class="ui-grid-c">
+                <div class="ui-block-a"><a id="bt4" class="ui-btn"> 4 </a></div>
+                <div class="ui-block-b"><a id="bt5" class="ui-btn"> 5 </a></div>
+                <div class="ui-block-c"><a id="bt6" class="ui-btn"> 6 </a></div>
+                <div class="ui-block-d"><a id="bt_menos" class="ui-btn" style="background: #339966; color: white;">  Vol - </a></div>
+            </div>
+            <div class="ui-grid-c">
+                <div class="ui-block-a"><a id="bt7" class="ui-btn">  7 </a></div>
+                <div class="ui-block-b"><a id="bt8" class="ui-btn">  8 </a></div>
+                <div class="ui-block-c"><a id="bt9" class="ui-btn">  9 </a></div>
+                <div class="ui-block-d"><a id="bt_ch_mais" class="ui-btn" style="background: #6699FF; color: white;">  Ch + </a></div>
+            </div>
+            <div class="ui-grid-c center">
+                <div class="ui-block-a"><a id="bt0" class="ui-btn">  0 </a></div>
+                <div class="ui-block-b"><a id="bt_cima" class="ui-btn ui-icon-arrow-u ui-btn-icon-notext ui-btn-inline" > </a></div>
+                <div class="ui-block-c"><a id="bt_audio" class="ui-btn" style="background: #00CC99; color: white;">  audio </a></div>
+                <div class="ui-block-d"><a id="bt_ch_menos" class="ui-btn" style="background: #6699FF; color: white;"> Ch -</a></div>
+            </div>
+
+            <div class="ui-grid-c center">
+                <div class="ui-block-a"><a id="bt_esquerda" class="ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline">   </a> </div>
+                <div class="ui-block-b"><a id="bt_ok" class="ui-btn" style="background: red; color: white;">  Ok </a></div>
+                <div class="ui-block-c"><a id="bt_direita" class="ui-btn ui-icon-arrow-r ui-btn-icon-notext ui-btn-inline">   </a> </div>
+                <div class="ui-block-d"><a id="bt_agora" class="ui-btn"> Now </a></div>
+            </div>
+            <div class="ui-grid-c center">
+                <div class="ui-block-a"><a id="bt_info" class="ui-btn"> info </a></div>
+                <div class="ui-block-b"><a id="bt_baixo" class="ui-btn ui-icon-arrow-d ui-btn-icon-notext ui-btn-inline">   </a> </div>
+                <div class="ui-block-c"><a id="bt_play" class="ui-btn"> Play </a></div>
+                <div class="ui-block-d"><a id="bt_stop" class="ui-btn"> Stop </a></div>
+            </div>
+            <div class="ui-grid-c">
+                <div class="ui-block-a"><a id="bt_voltar" class="ui-btn"> Voltar </a></div>
+                <div class="ui-block-b"><a id="bt_menu" class="ui-btn"> menu </a></div>
+                <div class="ui-block-c"><a id="bt_sair" class="ui-btn"> Sair </a></div>
+                <div class="ui-block-d"><a id="bt_legenda" class="ui-btn" style="background: #FFCC66; color: white;">  legenda </a></div>
+            </div>
+        </div>
+    </body>
+</html>
